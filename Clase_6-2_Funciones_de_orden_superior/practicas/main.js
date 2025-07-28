@@ -102,3 +102,46 @@ function crearTicket() {
   // win + . (emojis)
   alert("✔ ticket creado");
 }
+
+function verTicket(lista) {
+  if (lista.length === 0) {
+    alert("No hay tickets para mostrar.");
+    return;
+  }
+  let mensaje = "L lista de tickets: \n\n";
+  lista.forEach((ticket) => {
+    mensaje += `ID: ${ticket.id}, - Usuario: ${ticket.nombre} - Descripcion: ${ticket.problema} - Estado: ${ticket.estado} \n`;
+  });
+}
+
+function cerrarTicket() {
+  const id = parseInt(prompt("Ingrese el Id del ticket a cerrar:"));
+  const ticket = tickets.find((ticket) => ticket.id === id);
+  if (!ticket) {
+    alert("Ticket no encontrado.");
+    return;
+  } else if (ticket.estado === "cerrado") {
+    alert("El ticket ya está cerrado.");
+    return;
+  }
+  const confirmar = confirm("queres cerrar el ticket?");
+  if (confirmar) {
+    ticket.estado = "cerrado";
+    alert("ticket cerrado.");
+  }
+  return;
+}
+
+function filtrarPorEstado() {
+  const estado = prompt("Que estado quiere ver? (abierto / cerrado");
+  if (estado !== "abierto" && estado !== "cerrado") {
+    alert("estado invalido");
+    return;
+  } else if (estado === "abierto" || estado === "cerrado") {
+    const ticketsFiltrados = tickets.filter(
+      (ticket) => ticket.estado === estado
+    );
+    verTicket(ticketsFiltrados);
+    return;
+  }
+}
