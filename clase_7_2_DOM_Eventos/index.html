@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- <input type="text" id="inputfield" /> -->
+
+    <h1>Gestor de Ticket</h1>
+    <button id="btnCrear"></button>
+    <button id="btnVerTodos"></button>
+    <button id="btnfiltrar"></button>
+
+    <div id="fourmularioCrear">
+      <h3>Crear Nuevo Ticket</h3>
+      <form action="" id="ticketForm">
+        <p>
+          <label for="">Nombre del Cliente:</label><br />
+          <input type="text" id="cliente" required />
+        </p>
+        <p>
+          <label for="">Descripcion del Problema</label><br />
+          <textarea name="" id="problema" required></textarea>
+        </p>
+        <button type="submit">Crear Ticket</button>
+      </form>
+    </div>
+
+    <div id="seccionFiltro">
+      <h3>Filtrar Ticket</h3>
+      <p>
+        <label for="">Estado</label><br />
+        <select id="filtroEstado">
+          <option value="abierto">Abierto</option>
+          <option value="cerrado">Cerrado</option>
+        </select>
+        <button id="btnAplicarFiltro">Aplicar Filtro</button>
+      </p>
+    </div>
+    <div class="listaTickets"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
