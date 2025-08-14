@@ -130,3 +130,22 @@ contenedorRojo.addEventListener("mousemove", (event) => {
   console.log("cordenada Y = " + event.clientY); //coordenada Y del mouse
   console.log("Cordenada X = " + event.clientX); //coordenada X del mouse
 });
+
+//=====================================================
+//Eventos mas comunes
+//mouse, teclado, change, input, submit, otros\
+
+//EVENTOS DE MOUSE
+//se producen por interaccion del usuario con el mouse
+//mousedown/mouseup: se oprime/suelta el boton del mouse
+//mouseover/mouseout: El puntero del mouse se mueve sobre/sale del elemento
+//mousemove: El movimiento del mouse sobre el elemento activa el evento
+//click: Se activa despues de un mousedown y mouseup sobre un elemento
+//linea 35 en HTML
+let botonEvento = document.getElementById("eventMouse");
+boton.addEventListener("click", () => {
+  alert("Click");
+});
+boton.addEventListener("onmouseover", () => {
+  alert("Move");
+});
