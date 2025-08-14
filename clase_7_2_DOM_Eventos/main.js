@@ -57,3 +57,27 @@ function crearTicket() {
   alert("✔ ticket creado");
   document.getElementById("ticketForm").reset(); // Resetea el formulario
 }
+
+//Funcion para ver los tickets
+function mostrarTickets(lista) {
+  if (lista.length === 0) {
+    document.getElementById("listaTickets").innerHTML =
+      "<h3>No existe ningun tickets</h3>";
+    return;
+  }
+  let mensaje = "<h3>Lista de tickets: </h3>";
+  lista.forEach((ticket) => {
+    mensaje += `<div>
+                  <p><strong>ID: </strong> ${ticket.id}</p>
+                  <p><strong>Cliente: </strong> ${ticket.cliente}</p>
+                  <p><strong>Problema: </strong> ${ticket.problema}</p>
+                  <p><strong>Estado: </strong> ${ticket.estado}</p>
+                  ${
+                    ticket.estado === "abierto"
+                      ? `<button class="btnCerrar" data-id="${ticket.id}">Cerrar Ticket</button>`
+                      : `<span class="cerrado">Ticket Cerrado</span>`
+                  }
+                  <hr>
+                </div>`;
+  });
+}
