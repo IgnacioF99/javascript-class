@@ -14,40 +14,12 @@ let tickets = [];
 //Variable para id de ticket
 let ticketId = 0;
 
-function mostrarFormulario() {
-  //Obtenemos el formulario/Mostramos el formulario
-  document.getElementById("formulario").style.display = "block";
-  //ocultamos el Filtro
-  document.getElementById("seccionFiltro").style.display = "none";
-}
-function mostrarTodos() {
-  document.getElementById("formularioCrear").style.display = "none";
-  document.getElementById("seccionFiltro").style.display = "none";
-}
-function mostrarFiltro() {
-  document.getElementById("formularioCrear").style.display = "none";
-  document.getElementById("seccionFiltro").style.display = "block";
-}
-
-//Evento que se ejecuta cuando el DOM esta completamente cargado
-//Esto asegura que el script se ejecute solo cuando el HTML este listo
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("formularioCrear").style.display = "none";
-  document.getElementById("seccionFiltro").style.display = "none";
-
-  document
-    .getElementById("btnCrear")
-    .addEventListener("click", mostrarFormulario());
-  document.getElementById("btnTodos").addEventListener("click", mostrarTodos);
-  document.getElementById("btnFiltro").addEventListener("click", mostrarFiltro);
-});
-
 //Funcion para crear un ticket
 function crearTicket() {
-  const cliente = document.getElementById("cliente");
-  const problema = document.getElementById("problema");
+  const cliente = document.getElementById("cliente").value;
+  const problema = document.getElementById("problema").value;
   const ticket = {
-    id: idCounter++,
+    id: ticketId++,
     cliente: cliente,
     problema: problema,
     estado: "abierto",
@@ -60,9 +32,9 @@ function crearTicket() {
 
 //Funcion para ver los tickets
 function mostrarTickets(lista) {
+  const listaTickets = document.getElementById("listaTickets");
   if (lista.length === 0) {
-    document.getElementById("listaTickets").innerHTML =
-      "<h3>No existe ningun tickets</h3>";
+    listaTickets.innerHTML = "<h3>No existe ningun tickets</h3>";
     return;
   }
   let mensaje = "<h3>Lista de tickets: </h3>";
@@ -80,4 +52,67 @@ function mostrarTickets(lista) {
                   <hr>
                 </div>`;
   });
+  listaTickets.innerHTML = mensaje;
+
+  const btnCerrar = document.querySelectorAll(".btnCerrar");
+  const botonesCerrar = document.querySelectorAll(".btnCerrar");
+  botonesCerrar.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const id = parseInt(boton.getAttribute("data-id"));
+      cerrarTicket(id);
+    });
+  });
 }
+
+//Funcion para cerrar un ticket
+function cerrarTicket(id) {
+  const ticket = tickets.find((ticket) => ticket.id === id);
+  if (!ticket) {
+    alert("Ticket no encontrado.");
+    return;
+  } else if (ticket.estado === "cerrado") {
+    alert("El ticket ya está cerrado.");
+    return;
+  }
+  const confirmar = confirm("queres cerrar el ticket?");
+  if (confirmar) {
+    ticket.estado = "cerrado";
+    alert("ticket cerrado.");
+  }
+  return;
+}
+function mostrarFormulario() {
+  //Obtenemos el formulario/Mostramos el formulario
+  document.getElementById("formularioCrear").style.display = "block";
+  //ocultamos el Filtro
+  document.getElementById("seccionFiltro").style.display = "none";
+}
+function mostrarTodos() {
+  document.getElementById("formularioCrear").style.display = "none";
+  document.getElementById("seccionFiltro").style.display = "none";
+  mostrarTickets(tickets);
+}
+function mostrarFiltro() {
+  document.getElementById("formularioCrear").style.display = "none";
+  document.getElementById("seccionFiltro").style.display = "block";
+}
+
+//Evento que se ejecuta cuando el DOM esta completamente cargado
+//Esto asegura que el script se ejecute solo cuando el HTML este listo
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("formularioCrear").style.display = "none";
+  document.getElementById("seccionFiltro").style.display = "none";
+
+  document
+    .getElementById("btnCrear")
+    .addEventListener("click", mostrarFormulario);
+  document.getElementById("btnTodos").addEventListener("click", mostrarTodos);
+  document.getElementById("btnFiltro").addEventListener("click", mostrarFiltro);
+});
+
+document.getElementById("ticketForm").addEventListener("submit", (event) => {
+  event.preventDefault(); // Evita que el formulario se envíe y recargue la página
+  //Obtenemos los valores de los campos del formulario
+  confirm("¿Estás seguro de crear un ticket?");
+  crearTicket();
+});
