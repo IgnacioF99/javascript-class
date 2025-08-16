@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrega 2</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="cointainer">
+      <h1 class="Titulo">Entrega 2-Calcular IMC</h1>
+      <form action="" id="formIMC">
+        <p>
+          <label for="nombre">Nombre</label>
+          <input
+            type="text"
+            id="nombre"
+            placeholder="Ingrese su nombre"
+            required
+          />
+        </p>
+        <p>
+          <label for="edad">Edad</label>
+          <input
+            type="number"
+            id="edad"
+            placeholder="Ingrese su edad"
+            required
+          />
+        </p>
+        <p>
+          <label for="peso">Peso (kg)</label>
+          <input
+            type="number"
+            id="peso"
+            placeholder="Ingrese su peso en kg"
+            required
+          />
+        </p>
+        <p>
+          <label for="altura">Altura (m)</label>
+          <input
+            type="float"
+            id="altura"
+            placeholder="Ingrese su altura en metros"
+            required
+          />
+        </p>
+        <button type="submit" class="btn" id="btnSubmit">Calcular IMC</button>
+      </form>
+    </div>
+    <div id="IMC"></div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
