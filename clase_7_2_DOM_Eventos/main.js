@@ -81,13 +81,37 @@ function cerrarTicket(id) {
   }
   return;
 }
+
+function filtrarPorEstado() {
+  const btnEstado = document.getElementById("btnAplicarFiltro");
+  btnEstado.addEventListener("click", () => {
+    const estado = document.getElementById("filtroEstado").value;
+    filtrarTickets(estado);
+    console.log(estado);
+  });
+}
+function filtrarTickets(estado) {
+  if (estado !== "abierto" && estado !== "cerrado") {
+    alert("estado invalido");
+    return;
+  } else if (estado === "abierto" || estado === "cerrado") {
+    const ticketsFiltrados = tickets.filter(
+      (ticket) => ticket.estado === estado
+    );
+    mostrarTickets(ticketsFiltrados);
+    return;
+  }
+}
+
 function mostrarFormulario() {
   //Obtenemos el formulario/Mostramos el formulario
   document.getElementById("formularioCrear").style.display = "block";
   //ocultamos el Filtro
   document.getElementById("seccionFiltro").style.display = "none";
+  document.getElementById("listaTickets").style.display = "none"; // Resetea el formulario
 }
 function mostrarTodos() {
+  document.getElementById("listaTickets").style.display = "block";
   document.getElementById("formularioCrear").style.display = "none";
   document.getElementById("seccionFiltro").style.display = "none";
   mostrarTickets(tickets);
@@ -95,6 +119,8 @@ function mostrarTodos() {
 function mostrarFiltro() {
   document.getElementById("formularioCrear").style.display = "none";
   document.getElementById("seccionFiltro").style.display = "block";
+  document.getElementById("listaTickets").style.display = "block";
+  filtrarPorEstado();
 }
 
 //Evento que se ejecuta cuando el DOM esta completamente cargado
