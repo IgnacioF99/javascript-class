@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dota 2 Consultas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="title">
+        <img src="assets/icon/dota2Logo.jpeg" alt="Dota 2" class="logo" />
+        Dota 2 Consultas
+      </h1>
+    </header>
+
+    <main>
+      <section class="menu">
+        <button onclick="mostrarSeccion('heroes')">Héroes</button>
+        <button onclick="mostrarSeccion('jugadores')">Jugadores</button>
+        <button onclick="mostrarSeccion('partidas')">Partidas</button>
+        <button onclick="mostrarSeccion('torneos')">Torneos</button>
+        <button onclick="mostrarSeccion('proplayers')">ProPlayers</button>
+        <button onclick="mostrarSeccion('teams')">Equipos</button>
+      </section>
+
+      <section id="contenido"></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

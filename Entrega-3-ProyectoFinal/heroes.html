@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dota 2 Consultas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <h1 class="title">
+          <img src="assets/icon/dota2Logo.jpeg" alt="Dota 2" class="logo" />
+          Dota 2 Consultas
+        </h1>
+      </a>
+    </header>
+
+    <main>
+      <h2>Filtrar Héroes</h2>
+      <input
+        type="text"
+        placeholder="Nombre del héroe"
+        id="heroeInput"
+        class="input-busqueda"
+      />
+      <select id="filtroAtributo">
+        <option value="todo" class="atributos" id="atributoAll">
+          Atributo
+        </option>
+        <option value="str" class="atributos" id="atributoFuerza">
+          Fuerza
+        </option>
+        <option value="agi" class="atributos" id="atributoAgilidad">
+          Agilidad
+        </option>
+        <option value="int" class="atributos" id="atributoInteligencia">
+          Inteligencia
+        </option>
+        <option value="all" class="atributos" id="atributoAll">
+          Universal
+        </option>
+      </select>
+      <select id="filtroRol">
+        <option value="todo" class="roles">Rol</option>
+        <option value="Carry" class="roles">Carry</option>
+        <option value="Support" class="roles">Support</option>
+        <option value="Escape" class="roles">Escaper</option>
+        <option value="Initiator" class="roles">Iniciador</option>
+        <option value="Durable" class="roles">Durable</option>
+        <option value="Disabler" class="roles">Disabler</option>
+        <option value="Pusher" class="roles">Pusher</option>
+        <!-- Agrega más roles según sea necesario -->
+      </select>
+      <select id="filtroTipoAtaque">
+        <option value="todo" class="tipo">Tipo de Ataque</option>
+        <option value="Melee" class="tipo">Cuerpo a cuerpo</option>
+        <option value="Ranged" class="tipo">Distancia</option>
+        <!-- Agrega más roles según sea necesario -->
+      </select>
+      <button type="submit" class="btn filtrar" id="btnfiltrar">Filtrar</button>
+      <div id="heroesListado"></div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
