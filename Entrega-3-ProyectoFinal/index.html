@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dota 2 Consultas</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <h1 class="title">
+          <img src="assets/icon/dota2Logo.jpeg" alt="Dota 2" class="logo" />
+          Dota 2 Consultas
+        </h1>
+      </a>
+    </header>
+
+    <main>
+      <section class="menu">
+        <a href="heroes.html"
+          ><button onclick="mostrarSeccion('heroes')" class="button principal">
+            Héroes
+          </button></a
+        >
+        <a href="jugadores.html">
+          <button
+            onclick="mostrarSeccion('jugadores')"
+            class="button principal"
+          >
+            Jugadores
+          </button>
+        </a>
+        <a href="partidas.html">
+          <button onclick="mostrarSeccion('partidas')" class="button principal">
+            Partidas
+          </button>
+        </a>
+        <a href="torneos.html">
+          <button onclick="mostrarSeccion('torneos')" class="button principal">
+            Torneos
+          </button>
+        </a>
+        <a href="proplayers.html">
+          <button
+            onclick="mostrarSeccion('proplayers')"
+            class="button principal"
+          >
+            ProPlayers
+          </button>
+        </a>
+        <a href="teams.html">
+          <button onclick="mostrarSeccion('teams')" class="button principal">
+            Equipos
+          </button>
+        </a>
+      </section>
+      <section id="contenido"></section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

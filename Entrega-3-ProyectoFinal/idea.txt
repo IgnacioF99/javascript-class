@@ -1,0 +1,14 @@
+Pagina principal:
+Header
+Titulo de la pagina "Dota 2 consultas" junto a un icono de Dota
+en este caso no contara con navbar
+
+el main sera un apartado de botones con diferente tipos de busqueda, entre ellos:
+("en caso de click" =>)
+heroes => "tipos de filtro" (por atributo, rol, nombre) => mostrar listado de heroes
+Jugadores => input "ingresar id del juegador" => mostrar informacion del jugador
+partidas => input "ingresar id de partida" => mostrar detalles de la partida
+torneos => mostrara una lista de torneos a suceder
+proplayers => se mostrara un lista de proplayers
+teams => se mostrara una lista de los equipos profecionales
+
